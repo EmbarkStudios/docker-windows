@@ -1,13 +1,13 @@
 FROM embarkstudios/scoop:ltsc2019
 
 # Download the installer
-ADD https://aka.ms/vs/15/release/vs_buildtools.exe $TEMP\vs_buildtools.exe
+ADD https://aka.ms/vs/15/release/vs_buildtools.exe c:/temp/vs_buildtools.exe
 
 # Install 
-RUN $TEMP\vs_buildtools.exe --quiet --wait --norestart --nocache \
+RUN c:/temp/vs_buildtools.exe --quiet --wait --norestart --nocache \
     --installPath C:\buildtools \
     --add Microsoft.VisualStudio.Workload.VCTools;includeRecommended \
     --add Microsoft.VisualStudio.Workload.MSBuildTools
 
 # Cleanup the temp directory
-RUN del /q/f/s $TEMP\*
+RUN powershell -command "Remove-Item -Recurse -Force c:/temp"
