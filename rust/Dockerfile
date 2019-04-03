@@ -9,4 +9,6 @@ ENV triple x86_64-pc-windows-msvc
 # Install rust with the MSVC toolchain
 RUN c:/temp/rustup-init.exe -y --default-toolchain %rust_version%-%triple%
 
+ENV CARGO_HOME "%USERPROFILE%\\.cargo\\bin"
+
 RUN powershell -command "Remove-Item -Recurse -Force c:/temp"
