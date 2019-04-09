@@ -10,4 +10,4 @@ RUN c:/temp/vs_buildtools.exe --quiet --wait --norestart --nocache \
     --add Microsoft.VisualStudio.Workload.MSBuildTools
 
 # Cleanup the temp directory
-RUN powershell -command "Remove-Item -Recurse -Force c:/temp"
+RUN Remove-Item -Recurse -Force c:/temp

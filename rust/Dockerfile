@@ -11,4 +11,3 @@ RUN c:/temp/rustup-init.exe -y --default-toolchain %rust_version%-%triple%
 RUN powershell -command "Remove-Item -Recurse -Force c:/temp"
 
 ENV CARGO_HOME C:\\Users\\ContainerAdministrator\\.cargo
-
