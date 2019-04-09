@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows/powershell:nanoserver-1809
+FROM mcr.microsoft.com/powershell:nanoserver-1809
 
 COPY install-scoop.ps1 install-scoop.ps1
 
