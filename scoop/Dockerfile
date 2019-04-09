@@ -16,5 +16,7 @@ RUN Get-ChildItem Env:
 # Install git, scoop actually requires git to eg add buckets, and it will
 # most likely be used in child containers anyways
 RUN scoop install git-with-openssh
+# Attempt to see what went wrong
+RUN cat ~/scoop/apps/7zip/19.00/msi.log
 
 CMD ["scoop"]
