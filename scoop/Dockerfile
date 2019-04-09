@@ -13,10 +13,7 @@ ENV PATH="$PATH;c:/users/containeruser/scoop/shims"
 
 RUN Get-ChildItem Env:
 
-# Install git, scoop actually requires git to eg add buckets, and it will
-# most likely be used in child containers anyways
-RUN scoop install git-with-openssh
-# Attempt to see what went wrong
-RUN cat ~/scoop/apps/7zip/19.00/msi.log
+COPY install-git.ps1 install-git.ps1
+RUN ./install-git.ps1
 
 CMD ["scoop"]
