@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows/nanoserver:ltsc2019
+FROM mcr.microsoft.com/windows/nanoserver:1809
 
 COPY install-scoop.ps1 install-scoop.ps1
 
