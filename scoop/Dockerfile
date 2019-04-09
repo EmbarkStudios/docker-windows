@@ -1,19 +1,15 @@
-FROM mcr.microsoft.com/powershell:nanoserver-1809
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
-# Nanoserver doesn't include robocopy.exe, so copy it into to image and see what goes wrong!
-COPY Robocopy.exe c:/windows/system32
+# Powershell is vastly superior for our use case, so just make it the default
+SHELL ["powershell", "-c", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
 COPY install-scoop.ps1 install-scoop.ps1
-
-SHELL ["pwsh", "-c", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # Install scoop
 RUN ./install-scoop.ps1
 
-ENV PATH="$PATH;c:/users/containeruser/scoop/shims"
-
-RUN Get-ChildItem Env:
-
-COPY install-git.ps1 install-git.ps1
-RUN ./install-git.ps1
+# Install git, scoop actually requires git to eg add buckets, and it will
+# most likely be used in child containers anyways
+RUN scoop install git-with-openssh
 
 CMD ["scoop"]
