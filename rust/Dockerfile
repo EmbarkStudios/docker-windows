@@ -1,7 +1,5 @@
 FROM embarkstudios/vs-build-tools:ltsc2019-2017
 
-SHELL ["powershell", "-c", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-
 # Download rustup
 ADD https://win.rustup.rs c:/temp/rustup-init.exe
 
