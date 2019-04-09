@@ -9,8 +9,12 @@ SHELL ["pwsh", "-c", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'Si
 # Install scoop
 RUN ./install-scoop.ps1
 
+ENV PATH="$PATH;c:/users/containeruser/scoop/shims"
+
+RUN Get-ChildItem Env:
+
 # Install git, scoop actually requires git to eg add buckets, and it will
 # most likely be used in child containers anyways
-RUN ~/scoop/shims/scoop install git-with-openssh
+RUN scoop install git-with-openssh
 
 CMD ["scoop"]
