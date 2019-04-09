@@ -1,6 +1,5 @@
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
-# Powershell is vastly superior for our use case, so just make it the default
 SHELL ["powershell", "-c", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 COPY install-scoop.ps1 install-scoop.ps1
