@@ -1,5 +1,7 @@
 FROM mcr.microsoft.com/powershell:nanoserver-1809
 
+# Nanoserver doesn't include robocopy.exe, so copy it into to image and see what goes wrong!
+COPY Robocopy.exe c:/windows/system32
 COPY install-scoop.ps1 install-scoop.ps1
 
 # Install scoop
