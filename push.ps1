@@ -30,7 +30,7 @@ function progress {
         [int]$current = -1
     )
 
-    #Write-Progress -Activity $act -Status $status -PercentComplete ($current/($tags.count * 2 + 1)*100)
+    Write-Progress -Activity $act -Status $status -PercentComplete ($current/($tags.count * 2 + 1)*100)
 }
 
 function build {
