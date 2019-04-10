@@ -1,9 +1,14 @@
 param (
     [string]$agentName = "buildkite-agent",
-    [string]$installDir = "c:\buildkite-agent"
+    [string]$installDir = "c:\buildkite-agent",
+    [string]$token = $(throw "-token is required."),
+    [string]$tags = $(throw "-tags are required.")
 )
 
 echo "Installing Buildkite agent"
+
+$env:buildkiteAgentToken = $token
+$env:buildkiteAgentTags = $tags
 
 # Run the BuildKite agent install script
 Set-ExecutionPolicy Bypass -Scope Process -Force
