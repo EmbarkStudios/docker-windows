@@ -3,8 +3,6 @@ param(
     [string]$repo = $env:SCCACHE_REPO
 )
 
-$ErrorActionPreference="Stop";
-
 # We could alternatively also just do a cargo install <sccache-repo>
 $name = "sccache-$version-x86_64-pc-windows-msvc"
 

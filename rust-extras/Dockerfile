@@ -8,7 +8,7 @@ COPY install-sccache.ps1 temp/install-sccache.ps1
 RUN ./temp/install-sccache.ps1 -version "0.2.21" -repo "Jake-Shadle/sccache"
 
 # Install cargo-make via cargo for now
-RUN cargo install cargo-make
+RUN ./temp/install-cargo-make.ps1 -version "0.17.1"
 
 # Cleanup all our temporary files
 RUN Remove-Item -Recurse -Force ./temp
