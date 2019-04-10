@@ -8,4 +8,4 @@ $all = @(
     "--add", "Microsoft.VisualStudio.Workload.MSBuildTools"
 )
 
-c:/temp/vs_buildtools.exe $all
+& "c:/temp/vs_buildtools.exe" $all
