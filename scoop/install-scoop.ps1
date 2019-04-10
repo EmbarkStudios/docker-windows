@@ -1,5 +1,3 @@
-$ErrorActionPreference="Stop"
-
 echo "Temporarily allowing the execution of remote scripts"
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 
