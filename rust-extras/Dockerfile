@@ -18,5 +18,8 @@ RUN ./temp/install-cargo-make.ps1 -version "0.17.1"
 RUN scoop install openssl
 ENV OPENSSL_DIR="c:/users/containeradministrator/scoop/apps/openssl/current"
 
+# Install python due to some dependencies use it *stares at cranelift*
+RUN scoop install python
+
 # Cleanup all our temporary files
 RUN Remove-Item -Recurse -Force ./temp
