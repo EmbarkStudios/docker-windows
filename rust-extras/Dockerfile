@@ -19,9 +19,8 @@ RUN scoop install openssl
 ENV OPENSSL_DIR="c:/users/containeradministrator/scoop/apps/openssl/current"
 
 # Install more dependencies
-# * `python` due to some dependencies use it *stares at cranelift*
 # * `cmake` because C/C++ code :(
-RUN scoop install python cmake
+RUN scoop install cmake
 
 # Cleanup all our temporary files
 RUN Remove-Item -Recurse -Force ./temp
