@@ -11,7 +11,7 @@ COPY install-cargo-make.ps1 temp/install-cargo-make.ps1
 RUN ./temp/install-sccache.ps1 -version "0.2.21" -repo "Jake-Shadle/sccache"
 
 # Install cargo-make from its GH release rather than cargo install
-RUN ./temp/install-cargo-make.ps1 -version "0.17.1"
+RUN ./temp/install-cargo-make.ps1 -version "0.21.0"
 
 # Install openssl headers and libs and set OPENSSL_DIR so it is
 # picked up by openssl-sys
