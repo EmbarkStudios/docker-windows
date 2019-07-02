@@ -1,4 +1,4 @@
-FROM embarkstudios/rust-extras:ltsc2019-2017-1.34.0
+FROM embarkstudios/rust-extras:ltsc2019-2017-1.35.0
 
 COPY buildkite-service.ps1 c:/temp/buildkite-service.ps1
 

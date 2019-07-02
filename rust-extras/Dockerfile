@@ -1,6 +1,6 @@
 # escape=`
 
-FROM embarkstudios/rust:ltsc2019-2017-1.34.0
+FROM embarkstudios/rust:ltsc2019-2017-1.35.0
 
 COPY install-sccache.ps1 temp/install-sccache.ps1
 COPY install-cargo-make.ps1 temp/install-cargo-make.ps1
