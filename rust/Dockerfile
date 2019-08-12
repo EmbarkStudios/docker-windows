@@ -11,3 +11,5 @@ RUN c:/temp/rustup-init.exe -y --default-toolchain "$env:rust_version-$env:tripl
 RUN Remove-Item -Recurse -Force c:/temp
 
 ENV CARGO_HOME C:\\Users\\ContainerAdministrator\\.cargo
+
+RUN rustc --version
