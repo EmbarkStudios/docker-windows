@@ -5,3 +5,5 @@ steps:
   branches: master
   agents:
   - "os=windows"
+  - "docker=windows"
+  - "queue=ark"
