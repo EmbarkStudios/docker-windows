@@ -1,9 +1,5 @@
 steps:
 - label: "Build and push :windows: images to :docker:"
-  plugins:
-  - docker-login#v2.0.1:
-      username: embarkbot
-      password-env: DOCKER_LOGIN_PASSWORD
   commands:
   - powershell .\push.ps1 1.37.0
   branches: master
