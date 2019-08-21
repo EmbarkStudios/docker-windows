@@ -40,7 +40,7 @@ function build {
         progress -act "Building" -status $tags[$i] -current ($i + 1)
 
         # HAAAAAAX!
-        if ($dirs[$i] -eq "rust") {
+        if (($dirs[$i] -eq "rust") -or ($dirs[$i] -eq "rust-extras")) {
             docker build -t $tags[$i] --build-arg "rust_version=$rust_version" $dirs[$i]
         } else {
             docker build -t $tags[$i] $dirs[$i]
