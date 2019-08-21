@@ -1,0 +1,7 @@
+steps:
+- label: "Build and push :windows: images to :docker:"
+  commands:
+  - powershell .\push.ps1 1.37.0
+  branches: master
+  agents:
+  - "os=windows"
