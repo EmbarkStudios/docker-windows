@@ -1,6 +1,6 @@
 # docker-windows
 
-[![Build status](https://badge.buildkite.com/58a2e5c979ab49a062a2001c17fc4bcfe24de0a0da6ae0f3a4.svg)](https://buildkite.com/embark-studios/windows-images)
+[![Build status](https://badge.buildkite.com/269de3d39c9cc63f88cde297c27a00774532d44625dbebe6c3.svg?branch=master)](https://buildkite.com/embark-studios/windows-images)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FEmbarkStudios%2Fdocker-windows.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FEmbarkStudios%2Fdocker-windows?ref=badge_shield)
 
 Dockerfiles for :windows: + :rust: CI
