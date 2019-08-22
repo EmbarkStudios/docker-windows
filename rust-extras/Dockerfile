@@ -9,7 +9,7 @@ COPY install-cargo-make.ps1 temp/install-cargo-make.ps1
 # Install sccache, using our fork for now as it has not had a new release with
 # some changes we require, particularly regarding GCS support, once a release
 # is made we can install it via scoop instead
-RUN ./temp/install-sccache.ps1 -version "0.2.21" -repo "Jake-Shadle/sccache"
+RUN ./temp/install-sccache.ps1 -version "0.2.23" -repo "Jake-Shadle/sccache"
 
 # Install cargo-make from its GH release rather than cargo install
 RUN ./temp/install-cargo-make.ps1 -version "0.21.0"
