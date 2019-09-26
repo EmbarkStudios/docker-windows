@@ -14,7 +14,7 @@ $tags = @(
   "$org/vs-build-tools:$base_tag-$vs_tag",
   "$org/rust:$base_tag-$vs_tag-$rust_version",
   "$org/rust-extras:$base_tag-$vs_tag-$rust_version",
-  "$org/buildkite:$base_tag-$vs_tag-$rust_version"
+  #"$org/buildkite:$base_tag-$vs_tag-$rust_version"
 )
 
 $dirs = @(
@@ -22,7 +22,7 @@ $dirs = @(
     "vs-build-tools",
     "rust",
     "rust-extras",
-    "buildkite"
+    #"buildkite"
 )
 
 function progress {
