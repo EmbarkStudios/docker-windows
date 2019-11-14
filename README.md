@@ -44,6 +44,7 @@ This image contains a couple of additional things that improves our Rust CI.
 
 1. [sccache](https://github.com/mozilla/sccache) is used to accelerate our builds by minimizing compilation.
 1. [cargo-make](https://github.com/sagiegurari/cargo-make) is a convenient way to script Rust CI workflows.
+1. [cargo-fetcher](https://github.com/EmbarkStudios/cargo-fetcher) is used to accelerate crate fetching.
 1. openssl is installed via scoop so that any crates with dependencies on openssl-sys compile correctly
 1. cmake is installed via scoop due to many C/C++ sys libraries depending on it
 
