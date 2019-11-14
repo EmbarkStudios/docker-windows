@@ -16,7 +16,7 @@ RUN ./temp/install-cargo-make.ps1 -version "0.23.0"
 RUN cargo install --git https://github.com/mozilla/sccache.git --rev 9163240 --no-default-features --features=gcs
 
 COPY install-cargo-fetcher.ps1 temp/install-cargo-fetcher.ps1
-RUN ./temp/install-cargo-fetcher.ps1 -version "0.6.0"
+RUN ./temp/install-cargo-fetcher.ps1 -version "0.6.1"
 
 # Install openssl headers and libs and set OPENSSL_DIR so it is
 # picked up by openssl-sys
