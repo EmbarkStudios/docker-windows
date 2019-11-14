@@ -6,14 +6,17 @@ FROM embarkstudios/rust:ltsc2019-2017-${rust_version}
 #COPY install-sccache.ps1 temp/install-sccache.ps1
 COPY install-cargo-make.ps1 temp/install-cargo-make.ps1
 
+# Install cargo-make from its GH release rather than cargo install
+RUN ./temp/install-cargo-make.ps1 -version "0.23.0"
+
 # Install sccache, using our fork for now as it has not had a new release with
 # some changes we require, particularly regarding GCS support, once a release
 # is made we can install it via scoop instead
 #RUN ./temp/install-sccache.ps1 -version "0.2.12" -repo "mozilla/sccache"
-RUN cargo install --force --git https://github.com/EmbarkStudios/sccache.git --rev a0b5edd --no-default-features --features=gcs
+RUN cargo install --git https://github.com/mozilla/sccache.git --rev 9163240 --no-default-features --features=gcs
 
-# Install cargo-make from its GH release rather than cargo install
-RUN ./temp/install-cargo-make.ps1 -version "0.23.0"
+COPY install-cargo-fetcher.ps1 temp/install-cargo-fetcher.ps1
+RUN ./temp/install-cargo-fetcher.ps1 -version "0.6.0"
 
 # Install openssl headers and libs and set OPENSSL_DIR so it is
 # picked up by openssl-sys
