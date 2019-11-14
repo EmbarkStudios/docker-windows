@@ -5,12 +5,11 @@ param(
 
 $name = "cargo-fetcher-$version-x86_64-pc-windows-msvc"
 
-Invoke-WebRequest -Uri "https://github.com/$repo/releases/download/$version/$name.tar.gz" -OutFile ./temp/archive.tar.gz
+Invoke-WebRequest -Uri "https://github.com/$repo/releases/download/$version/$name.tar.gz" -OutFile ./temp/cargo-fetcher.tar.gz
 
 # 7z apparently can't decompress and extract in one execution...why even
-7z e "-o./temp" ./temp/archive.tar.gz
-7z e "-o./temp" "./temp/$name.tar"
+tar -xzvf ./temp/cargo-fetcher.tar.gz -C ./temp
 ls ./temp
 
 # Place cargo-fetcher in $HOME/.cargo/bin as it's in $PATH
-mv ./temp/cargo-fetcher.exe $env:CARGO_HOME/bin
+mv ./temp/$name/cargo-fetcher.exe $env:CARGO_HOME/bin
