@@ -1,8 +1,8 @@
 steps:
-- label: "Build and push :windows: images to :docker:"
-  commands:
-  - powershell .\push.ps1 1.40.0
-  branches: master
-  agents:
-  - "os=windows"
-  - "queue=ark"
+  - label: "Build and push :windows: images to :docker:"
+    commands:
+      - powershell .\push.ps1 1.41.0
+    branches: master
+    agents:
+      - "os=windows"
+      - "queue=ark"
