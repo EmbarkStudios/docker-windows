@@ -18,5 +18,5 @@ RUN scoop install cmake
 # Cleanup all our temporary files
 RUN Remove-Item -Recurse -Force ./temp
 # Cleanup cargo directories
-RUN Remove-Item -Recurse -Force ${CARGO_HOME}\\git
-RUN Remove-Item -Recurse -Force ${CARGO_HOME}\\registry
+RUN Remove-Item -Recurse -Force ${CARGO_HOME}\\git -ErrorAction Ignore
+RUN Remove-Item -Recurse -Force ${CARGO_HOME}\\registry -ErrorAction Ignore
