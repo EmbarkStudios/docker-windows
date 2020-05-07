@@ -3,10 +3,7 @@
 ARG rust_version=stable
 FROM embarkstudios/rust:ltsc2019-2017-${rust_version}
 
-# Install sccache, using our fork for now as it has not had a new release with
-# some changes we require, particularly regarding GCS support, once a release
-# is made we can install it via scoop instead
-RUN cargo install sccache --no-default-features --features=gcs
+RUN cargo install --git https://github.com/mozilla/sccache --rev f50207525810c12f9dbad2b9e92892d055b1b38a --features gcs --no-default-features
 
 COPY install-cargo-fetcher.ps1 temp/install-cargo-fetcher.ps1
 RUN ./temp/install-cargo-fetcher.ps1 -version "0.7.0"
