@@ -1,6 +1,6 @@
 param (
     [string]$rust_version = $(throw "-rust_version is required."),
-    [string]$vs_tag = "2019"
+    [string]$vs_tag = "2017"
 )
 
 # Stop and exit if any command/cmdlet fails

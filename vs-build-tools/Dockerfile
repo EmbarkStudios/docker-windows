@@ -1,7 +1,7 @@
 FROM embarkstudios/scoop:ltsc2019
 
 # Download the installer
-ADD https://aka.ms/vs/17/release/vs_buildtools.exe c:/temp/vs_buildtools.exe
+ADD https://aka.ms/vs/15/release/vs_buildtools.exe  c:/temp/vs_buildtools.exe
 
 # Temporarily force the shell back to cmd due to powershell trying to interpret stuff it shouldn't
 SHELL ["cmd", "/S", "/C"]
