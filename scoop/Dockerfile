@@ -6,9 +6,9 @@ SHELL ["powershell", "-NoLogo", "-c", "$ErrorActionPreference = 'Stop'; $Progres
 
 # Change the user to just b instead of ContainerAdministrator as it is extremely
 # long and lowers the chances of MAX_PATH shenanigans
-RUN net user "$env:user" /add
-RUN net LOCALGROUP Administrators /add "$env:user"
-USER "$env:user"
+RUN net user ${user} /add
+RUN net LOCALGROUP Administrators /add ${user}
+USER ${user}
 
 COPY install-scoop.ps1 install-scoop.ps1
 

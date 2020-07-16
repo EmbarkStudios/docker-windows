@@ -2,7 +2,7 @@
 ARG rust_version=stable
 FROM embarkstudios/rust:ltsc2019-2017-${rust_version}
 
-USER "$env:user"
+USER ${user}
 
 RUN cargo install --git https://github.com/mozilla/sccache --rev f50207525810c12f9dbad2b9e92892d055b1b38a --features gcs --no-default-features
 
