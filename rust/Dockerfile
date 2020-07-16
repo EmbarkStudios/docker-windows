@@ -1,6 +1,7 @@
 FROM embarkstudios/vs-build-tools:ltsc2019-2017
 
 USER boop
+RUN whoami
 
 # Download rustup
 ADD https://win.rustup.rs  c:/temp/rustup-init.exe

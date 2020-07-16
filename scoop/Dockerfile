@@ -8,6 +8,8 @@ RUN NET USER boop /ADD
 RUN NET LOCALGROUP Administrators /ADD boop
 USER boop
 
+RUN whoami
+
 COPY install-scoop.ps1 install-scoop.ps1
 
 # Install scoop
