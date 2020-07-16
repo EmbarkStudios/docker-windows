@@ -1,14 +1,12 @@
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
-ENV user=b
-
 SHELL ["powershell", "-NoLogo", "-c", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # Change the user to just b instead of ContainerAdministrator as it is extremely
 # long and lowers the chances of MAX_PATH shenanigans
 RUN NET USER b /ADD
 RUN NET LOCALGROUP Administrators /ADD b
-USER ${user}
+USER b
 
 COPY install-scoop.ps1 install-scoop.ps1
 

@@ -2,7 +2,7 @@
 ARG rust_version=stable
 FROM embarkstudios/rust:ltsc2019-2017-${rust_version}
 
-USER ${user}
+USER b
 
 RUN Write-Host "$env:UserName"
 
