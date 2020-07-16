@@ -1,5 +1,7 @@
 # escape=`
 
+USER $user
+
 ARG rust_version=stable
 FROM embarkstudios/rust:ltsc2019-2017-${rust_version}
 

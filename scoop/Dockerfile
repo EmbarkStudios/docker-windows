@@ -1,10 +1,12 @@
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
+ENV user=b
+
 # Change the user to just b instead of ContainerAdministrator as it is extremely
 # long and lowers the chances of MAX_PATH shenanigans
-RUN NET USER b /add
-RUN NET LOCALGROUP Administrators /add b
-USER b
+RUN net user $user /add
+RUN net LOCALGROUP Administrators /add $user
+USER $user
 
 SHELL ["powershell", "-NoLogo", "-c", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
