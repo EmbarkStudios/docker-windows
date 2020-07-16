@@ -1,6 +1,6 @@
 FROM embarkstudios/vs-build-tools:ltsc2019-2017
 
-USER $user
+USER "$env:user"
 
 # Download rustup
 ADD https://win.rustup.rs  c:/temp/rustup-init.exe
@@ -12,6 +12,6 @@ ENV triple x86_64-pc-windows-msvc
 RUN c:/temp/rustup-init.exe -y --default-toolchain "$env:rust_version-$env:triple" --profile=minimal
 RUN Remove-Item -Recurse -Force c:/temp
 
-ENV CARGO_HOME C:\\Users\\$user\\.cargo
+ENV CARGO_HOME "C:\\Users\\$env:user\\.cargo"
 
 RUN rustc --version
