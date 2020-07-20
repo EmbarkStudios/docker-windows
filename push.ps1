@@ -43,7 +43,7 @@ function build {
         $name = $dirs[$i]
         $tag = $tags[$i]
 
-        if (name -eq "scoop") {
+        if ($name -eq "scoop") {
             docker build -t $tag $name
             continue;
         }
