@@ -43,13 +43,17 @@ function build {
         $name = $dirs[$i]
         $tag = $tags[$i]
 
-        # HAAAAAAX!
-        if (($name -eq "rust") -or ($name -eq "rust-extras")) {
-            docker build -t $tag --build-arg "rust_version=$rust_version" $name
-        } elseif ($name -eq "buildkite") {
-            docker build -t $tag --build-arg "rust_version=$rust_version" --build-arg "buildkiteAgentToken=$token" $name
-        } else {
+        if (name -eq "scoop") {
             docker build -t $tag $name
+            continue;
+        }
+
+        if (($name -eq "rust") -or ($name -eq "rust-extras")) {
+            docker build -t $tag --build-arg "rust_version=$rust_version" --build-arg "org=$org"  $name
+        } elseif ($name -eq "buildkite") {
+            docker build -t $tag --build-arg "rust_version=$rust_version" --build-arg "buildkiteAgentToken=$token" --build-arg "org=$org" $name
+        } else {
+            docker build -t $tag --build-arg "org=$org" $name
         }
     }
 }

@@ -1,4 +1,5 @@
-FROM embarkstudios/vs-build-tools:1909-2017
+ARG org=embarkstudios
+FROM ${org}/vs-build-tools:1909-2017
 
 # Download rustup
 ADD https://win.rustup.rs  c:/temp/rustup-init.exe
