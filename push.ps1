@@ -1,14 +1,14 @@
 param (
     [string]$rust_version = $(throw "-rust_version is required."),
     [string]$token = $(throw "-token is required."),
-    [string]$vs_tag = "2017",
+    [string]$org = "embarkstudios",
+    [string]$vs_tag = "2017"
 )
 
 # Stop and exit if any command/cmdlet fails
 $ErrorActionPreference="Stop"
 
 $base_tag = "1909"
-$org = "embarkstudios"
 
 $tags = @(
   "$org/scoop:$base_tag",
