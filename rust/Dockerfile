@@ -1,4 +1,4 @@
-FROM embarkstudios/vs-build-tools:ltsc2019-2017
+FROM embarkstudios/vs-build-tools:1909-2017
 
 # Download rustup
 ADD https://win.rustup.rs  c:/temp/rustup-init.exe

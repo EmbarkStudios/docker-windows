@@ -1,4 +1,4 @@
-FROM embarkstudios/scoop:ltsc2019
+FROM embarkstudios/scoop:1909
 
 # Download the installer
 ADD https://aka.ms/vs/15/release/vs_buildtools.exe c:/temp/vs_buildtools.exe

@@ -1,9 +1,7 @@
-FROM embarkstudios/rust-extras:ltsc2019-2017-1.35.0
+ARG rust_version=stable
+FROM embarkstudios/extra:1909-2017-${rust_version}
 
 COPY buildkite-service.ps1 c:/temp/buildkite-service.ps1
-
-# Install nssm "the Non-Sucking Service Manager" to manage the buildkite agent as a service
-RUN scoop install nssm
 
 # Due to how the buildkite installer works, we need to have the token at a minimum configured
 # before running it, however this is problematic since it would mean exposing build tokens

@@ -1,26 +1,29 @@
 param (
     [string]$rust_version = $(throw "-rust_version is required."),
-    [string]$vs_tag = "2017"
+    [string]$token = $(throw "-token is required."),
+    [string]$vs_tag = "2017",
 )
 
 # Stop and exit if any command/cmdlet fails
 $ErrorActionPreference="Stop"
 
-$base_tag = "ltsc2019"
+$base_tag = "1909"
 $org = "embarkstudios"
 
 $tags = @(
   "$org/scoop:$base_tag",
   "$org/vs-build-tools:$base_tag-$vs_tag",
   "$org/rust:$base_tag-$vs_tag-$rust_version",
-  "$org/rust-extras:$base_tag-$vs_tag-$rust_version"
+  "$org/rust-extras:$base_tag-$vs_tag-$rust_version",
+  "$org/buildkite:$base_tag-$vs_tag-$rust_version"
 )
 
 $dirs = @(
     "scoop",
     "vs-build-tools",
     "rust",
-    "rust-extras"
+    "rust-extras",
+    "buildkite"
 )
 
 function progress {
@@ -37,11 +40,17 @@ function build {
     for ($i = 0; $i -le ($tags.length - 1); $i += 1) {
         progress -act "Building" -status $tags[$i] -current ($i + 1)
 
+        $name = $dirs[$i]
+        $tag = $tags[$i]
+
         # HAAAAAAX!
-        if (($dirs[$i] -eq "rust") -or ($dirs[$i] -eq "rust-extras")) {
-            docker build -t $tags[$i] --build-arg "rust_version=$rust_version" $dirs[$i]
+        if (($name -eq "rust") -or ($name -eq "rust-extras")) {
+            docker build -t $tag --build-arg "rust_version=$rust_version" $name
+        } else if ($name -eq "buildkite") {
+            docker build -t $tag --build-arg "rust_version=$rust_version" --build-arg "buildkiteAgentToken=$token" $name
+        }
         } else {
-            docker build -t $tags[$i] $dirs[$i]
+            docker build -t $tag $name
         }
     }
 }
